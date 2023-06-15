@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    
+    h2 {
+      text-align: center;
+    }
+    
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f2f2f2;
+      border-radius: 5px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    
+    input[type="button"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    input[type="button"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+  
+  <script>
+    // Function to calculate the total price
+    function calculateTotal() {
+      var quantity = parseFloat(document.getElementById("quantity").value);
+      var price = parseFloat(document.getElementById("price").value);
+      var totalPrice = quantity * price;
+      
+      if (!isNaN(totalPrice)) {
+        document.getElementById("total-price").value = totalPrice.toFixed(2);
+      }
+    }
+    
+    // Function to reset the form
+    function resetForm() {
+      document.getElementById("product-form").reset();
+    }
+    
+    // Function to populate form with predefined product details
+    function populateForm() {
+      document.getElementById("category").value = "Electronics";
+      document.getElementById("product-name").value = "Smartphone";
+      document.getElementById("quantity").value = 1;
+      document.getElementById("price").value = 500;
+      
+      calculateTotal();
+    }
+  </script>
+</head>
+<body>
+  <h2>Product Form</h2>
+  
+  <form id="product-form">
+    <label for="category">Category:</label>
+    <input type="text" id="category" name="category" required>
+    
+    <label for="product-name">Product Name:</label>
+    <input type="text" id="product-name" name="product-name" required>
+    
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" name="quantity" min="0" oninput="calculateTotal()" required>
+    
+    <label for="price">Price:</label>
+    <input type="number" id="price" name="price" min="0" step="0.01" oninput="calculateTotal()" required>
+    
+    <label for="total-price">Total Price:</label>
+    <input type="number" id="total-price" name="total-price" readonly>
+    
+    <input type="button" value="Reset" onclick="resetForm()">
+    <input type="button" value="Get Data" onclick="populateForm()">
+  </form>
+</body>
+</html>
+
+
