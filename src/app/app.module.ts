@@ -8,6 +8,7 @@ import { TemplateDrivenFormsComponent } from './template-driven-forms/template-d
 import { TemplateDrivenModalComponent } from './template-driven-modal/template-driven-modal.component';
 import { ProductFormComponent } from './product-form/product-form.component';
 import { ReactiveFormsExampleComponent } from './forms/reactive-forms-example/reactive-forms-example.component';
+import { LoginformComponent } from './loginform/loginform.component';
 // import { LifeCycleHooksDemoComponent } from './life-cycle-hooks-demo/life-cycle-hooks-demo.component';
 
 @NgModule({
@@ -17,6 +18,7 @@ import { ReactiveFormsExampleComponent } from './forms/reactive-forms-example/re
     TemplateDrivenModalComponent,
     ProductFormComponent,
     ReactiveFormsExampleComponent,
+    LoginformComponent,
     // LifeCycleHooksDemoComponent
   ],
   imports: [
